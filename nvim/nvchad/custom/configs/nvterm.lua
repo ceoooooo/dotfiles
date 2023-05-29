@@ -1,0 +1,26 @@
+-- local options = {
+--   terminals = {
+--     shell = vim.o.shell,
+--     list = {},
+--     type_opts = {
+--       float = {
+--         relative = 'editor',
+--         row = 0.4,
+--         col = 0.35,
+--         width = 0.5,
+--         height = 0.6,
+--         border = "single",
+--       },
+--       horizontal = { location = "rightbelow", split_ratio = .3, },
+--       vertical = { location = "rightbelow", split_ratio = .5 },
+--     }
+--   },
+--   behavior = {
+--     autoclose_on_quit = {
+--       enabled = true,
+--       confirm = true,
+--     },
+--     close_on_exit = true,
+--     auto_insert = true,
+--   },
+-- }
