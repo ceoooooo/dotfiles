@@ -2,8 +2,6 @@ name: telegram message
 on:
   pull_request:
     types: [opened, reopened, ready_for_review, closed]
-env:
-  PR_NUMBER: ${{ github.event.number }}
 jobs:
 
   build:
@@ -23,4 +21,4 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            A new PR ${{ github.ref }} View all PR's ${{ PR_NUMBER }}
+            A new PR ${{ github.ref }} View all PR's ${{ github.event.number }}
