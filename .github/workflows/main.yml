@@ -11,12 +11,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Telegram Message Notify
         uses: appleboy/telegram-action@master
-        env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
         with:
           if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            A new PR is ${{github.head_ref}} View all PR's ${{ github.prNumber }} ${{BRANCH_NAME}}
+            A new PR ${{ github.head_ref }} ${{github.ref_name}}  View all PR's ${{ github.prNumber }} ${{BRANCH_NAME}}
