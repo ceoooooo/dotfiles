@@ -10,8 +10,9 @@ jobs:
       - name: Telegram Message Notify
         uses: appleboy/telegram-action@master
         with:
+          if: github.event_name != 'pull_request'
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            A new PR is raised [View all PR's](https://github.com/<user>/<repo>/pulls)
+            A new PR is raised View all PR's ${{ GITHUB_REF }}
