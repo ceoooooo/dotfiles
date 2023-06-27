@@ -1,5 +1,7 @@
 name: telegram message
-on: [push]
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, closed]
 jobs:
 
   build:
@@ -10,9 +12,9 @@ jobs:
       - name: Telegram Message Notify
         uses: appleboy/telegram-action@master
         with:
-          if: github.event_name != 'pull_request'
+          if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            A new PR is raised View all PR's $GITHUB_REF
+            A new PR is raised View all PR's ${{ github.event.pull_request.head.sha }}
