@@ -17,4 +17,4 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            A new PR ${{ github.ref }} View all PR's ${{ github.prNumber }}
+            A new PR ${{ github.ref }} View all PR's ${{ github.base_ref }}
